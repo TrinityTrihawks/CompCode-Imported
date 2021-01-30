@@ -5,12 +5,14 @@ import java.util.function.DoubleSupplier;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.subsystems.Shooter;
 
+import frc.robot.PIDConstants;
+
 
 public class ShootInitLine extends SequentialCommandGroup {
 
     public ShootInitLine(Shooter shooter, DoubleSupplier adjustment) {
         addCommands(
-            new ShootClosedLoop(shooter, adjustment, 250, 8, 0, 0, 2)
+            new ShootClosedLoop(shooter, adjustment, 250, PIDConstants.fromDoubles(8, 0, 0, 2))
         );
     }
 

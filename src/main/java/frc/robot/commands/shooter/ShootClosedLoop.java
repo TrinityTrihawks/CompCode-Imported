@@ -5,6 +5,8 @@ import java.util.function.DoubleSupplier;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.subsystems.Shooter;
 
+import frc.robot.PIDConstants;
+
 /**
  * Shoot at given velocity using given feedback constants
  * Also incorporates real-time adjustments to velocity using double supplier between [-1, 1]
@@ -12,9 +14,9 @@ import frc.robot.subsystems.Shooter;
 public class ShootClosedLoop extends SequentialCommandGroup {
 
     public ShootClosedLoop(Shooter shooter, DoubleSupplier adjustment, double vel, 
-                            double p, double i, double d, double f) {
+                            PIDConstants constants) {
         addCommands(
-            new ShooterSetConstants(shooter, p, i, d, f),
+            new ShooterSetConstants(shooter, constants),
             new ShootClosedLoopVelocityOnly(shooter, adjustment, vel)
         );
     }
@@ -24,7 +26,7 @@ public class ShootClosedLoop extends SequentialCommandGroup {
      * This version of the constructor disables adjustment
      */
     public ShootClosedLoop(Shooter shooter, double vel,
-                                double p, double i, double d, double f) {
-        this(shooter, ()->0, vel, p, i, d, f);
+                                PIDConstants constants) {
+        this(shooter, ()->0, vel, constants);
     }
 }

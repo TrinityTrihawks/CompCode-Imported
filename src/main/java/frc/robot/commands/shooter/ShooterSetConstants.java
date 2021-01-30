@@ -9,15 +9,13 @@ import frc.robot.subsystems.Shooter;
  */
 public class ShooterSetConstants extends InstantCommand {
   private final Shooter shooter;
-  private final double p, i, d, f;
+  
+  private PIDConstants pidConstants;
 
   // Creates a new ShooterSetConstants command
-  public ShooterSetConstants(Shooter shooter, double p, double i, double d, double f) {
+  public ShooterSetConstants(Shooter shooter, PIDConstants constants) {
     this.shooter = shooter;
-    this.p = p;
-    this.i = i;
-    this.d = d;
-    this.f = f;
+    pidConstants = constants;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(shooter);
   }
@@ -25,7 +23,7 @@ public class ShooterSetConstants extends InstantCommand {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    shooter.updatePIDConstants(PIDConstants.fromDoubles(p, i, d, f));
+    shooter.updatePIDConstants(pidConstants);
   }
 
 

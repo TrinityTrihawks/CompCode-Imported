@@ -2,10 +2,7 @@ package frc.robot;
 
 public class PIDConstants {
     
-    private double p;
-    private double i;
-    private double d;
-    private double f;
+    private double p, i, d, f;
 
     private PIDConstants(double p, double i, double d, double f) {
         this.p = p;
