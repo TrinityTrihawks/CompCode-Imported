@@ -12,7 +12,7 @@ package frc.robot;
  */
 public final class Constants {
     /**
-     * Drive Constants 2020
+     * Drive Constants 2021
      */
     public static final class DriveConstants {
         public static final int kFrontLeftId = 4;
@@ -26,6 +26,7 @@ public final class Constants {
      */
     public static final class IntakeConstants {
         public static final int kMotorId = 1;
+        // TODO: add ID for optical beam-break sensor
     }
 
     /**
@@ -34,7 +35,7 @@ public final class Constants {
     public static final class StorageConstants {
         public static final int kMotorId = 5;
         public static final int encUnitsPer1Rev = 4096; 
-        public static final int gearboxRatio = 1 / 36;
+        public static final double gearboxRatio = 1 / 36.0;
         public static final double ballToBeltRatio = 2.5;
     }
 
@@ -63,7 +64,7 @@ public final class Constants {
         public static final double kF = 0;
 
         public static final double encUnitsPer1Rev = 4096;
-        public static final double gearboxRatio = 1 / 4;
+        public static final double gearboxRatio = 1 / 4.0;
 
     }
 
