@@ -113,8 +113,8 @@ public class Storage extends SubsystemBase {
   /**
    * Get position change since last reset in encoder raw units
    */
-  public int getPosition() {
-    return (int)motor.getSelectedSensorPosition(); //TODO: double!
+  public double getPosition() {
+    return motor.getSelectedSensorPosition(); 
   }
 
   @Override
