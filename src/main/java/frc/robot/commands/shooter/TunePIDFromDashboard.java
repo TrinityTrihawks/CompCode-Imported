@@ -3,6 +3,7 @@ package frc.robot.commands.shooter;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.PIDConstants;
 import frc.robot.Constants.ShooterConstants;
 import frc.robot.subsystems.Shooter;
 
@@ -41,7 +42,7 @@ public class TunePIDFromDashboard extends CommandBase {
 
     System.out.println("Tuning pid");
 
-    shooter.updatePIDConstants(p, i, d, f);
+    shooter.updatePIDConstants(PIDConstants.fromDoubles(p, i, d, f));
 
     shooter.shootClosedLoop(vel);
   }

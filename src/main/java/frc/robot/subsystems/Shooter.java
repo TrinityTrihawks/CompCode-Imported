@@ -13,6 +13,8 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.PIDConstants;
+
 import static frc.robot.Constants.ShooterConstants;
 
 public class Shooter extends SubsystemBase {
@@ -73,7 +75,7 @@ public class Shooter extends SubsystemBase {
     right.setInverted(false);
 
     // Initial PID constants
-    updatePIDConstants(ShooterConstants.kP, ShooterConstants.kI, ShooterConstants.kD, ShooterConstants.kF);
+    updatePIDConstants(PIDConstants.fromDoubles(ShooterConstants.kP, ShooterConstants.kI, ShooterConstants.kD, ShooterConstants.kF));
 
     // Setup NetworkTables subtable
     final NetworkTableInstance inst = NetworkTableInstance.getDefault();
@@ -152,16 +154,16 @@ public class Shooter extends SubsystemBase {
     return new double[] { leftEncVel, rightEncVel };
   }
 
-  public void updatePIDConstants(double p, double i, double d, double f) {
-    left.config_kP(0, p);
-    left.config_kI(0, i);
-    left.config_kD(0, d);
-    left.config_kF(0, f);
+  public void updatePIDConstants(PIDConstants constants) {
+    left.config_kP(0, constants.getP());
+    left.config_kI(0, constants.getI());
+    left.config_kD(0, constants.getD());
+    left.config_kF(0, constants.getF());
 
-    right.config_kP(0, p);
-    right.config_kI(0, i);
-    right.config_kD(0, d);
-    right.config_kF(0, f);
+    right.config_kP(0, constants.getP());
+    right.config_kI(0, constants.getI());
+    right.config_kD(0, constants.getD());
+    right.config_kF(0, constants.getF());
   }
 
   @Override

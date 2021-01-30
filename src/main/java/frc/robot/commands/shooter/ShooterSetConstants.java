@@ -1,6 +1,7 @@
 package frc.robot.commands.shooter;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import frc.robot.PIDConstants;
 import frc.robot.subsystems.Shooter;
 
 /**
@@ -24,7 +25,7 @@ public class ShooterSetConstants extends InstantCommand {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    shooter.updatePIDConstants(p, i, d, f);
+    shooter.updatePIDConstants(PIDConstants.fromDoubles(p, i, d, f));
   }
 
 
