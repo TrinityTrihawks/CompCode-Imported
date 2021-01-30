@@ -140,16 +140,16 @@ public class Shooter extends SubsystemBase {
   }
 
   /**
-   * @return int array of {left, right} encoder velocities
+   * @return double array of {left, right} encoder velocities
    */
-  public int[] getEncoderValues() {
+  public double[] getEncoderValues() {
 
-    int leftEncVel = (int)left.getSelectedSensorVelocity(); // TODO: double!
-    int rightEncVel = (int)right.getSelectedSensorVelocity();
+    double leftEncVel = left.getSelectedSensorVelocity(); 
+    double rightEncVel = right.getSelectedSensorVelocity();
     // int leftEncVel = left.getSensorCollection().getPulseWidthVelocity();
     // int rightEncVel = right.getSensorCollection().getPulseWidthVelocity();
 
-    return new int[] { leftEncVel, rightEncVel };
+    return new double[] { leftEncVel, rightEncVel };
   }
 
   public void updatePIDConstants(double p, double i, double d, double f) {
@@ -188,8 +188,8 @@ public class Shooter extends SubsystemBase {
       subtable.getEntry("right_voltage").setDouble(right.getMotorOutputVoltage());
 
       // Encoder Velocity
-      subtable.getEntry("LeftShooterVel").setNumber(getEncoderValues()[0]);
-      subtable.getEntry("RightShooterVel").setNumber(getEncoderValues()[1]);
+      subtable.getEntry("LeftShooterVel").setDouble(getEncoderValues()[0]);
+      subtable.getEntry("RightShooterVel").setDouble(getEncoderValues()[1]);
       
       // Control Mode
       subtable.getEntry("left_controlMode").setString(left.getControlMode().toString());
