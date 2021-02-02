@@ -21,7 +21,7 @@ public class Shooter extends SubsystemBase {
 
   private final TalonSRX left;
   private final TalonSRX right;
- 
+
   private final NetworkTable subtable;
 
   private static Shooter subsystemInst = null;
@@ -44,22 +44,22 @@ public class Shooter extends SubsystemBase {
     left = new TalonSRX(ShooterConstants.kLeftTalonId);
     right = new TalonSRX(ShooterConstants.kRightTalonId);
 
-    // Left Talon Config
-    left.configFactoryDefault();
+    configLeftTalon();
+    configRightTalon();
 
-    left.setNeutralMode(NeutralMode.Coast);
+    // Initial PID constants
+    PIDConstants shooterConstants = PIDConstants.fromDoubles(ShooterConstants.kP, ShooterConstants.kI,
+        ShooterConstants.kD, ShooterConstants.kF);
+    updatePIDConstants(shooterConstants);
 
-    left.configNominalOutputForward(0);
-    left.configNominalOutputReverse(0);
-    left.configPeakOutputForward(1);
-    left.configPeakOutputReverse(-1);
+    // Setup NetworkTables subtable
+    final NetworkTableInstance inst = NetworkTableInstance.getDefault();
+    subtable = inst.getTable("shooter");
+    subtable.getEntry("should_log").setBoolean(false);
 
-    left.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 30);
-    left.setSensorPhase(false);
+  }
 
-    left.setInverted(true);
-
-    // Right Talon config
+  private void configRightTalon() {
     right.configFactoryDefault();
 
     right.setNeutralMode(NeutralMode.Coast);
@@ -73,17 +73,22 @@ public class Shooter extends SubsystemBase {
     right.setSensorPhase(false);
 
     right.setInverted(false);
+  }
 
-    // Initial PID constants
-    PIDConstants shooterConstants = 
-      PIDConstants.fromDoubles(ShooterConstants.kP, ShooterConstants.kI, ShooterConstants.kD, ShooterConstants.kF);
-    updatePIDConstants(shooterConstants);
+  private void configLeftTalon() {
+    left.configFactoryDefault();
 
-    // Setup NetworkTables subtable
-    final NetworkTableInstance inst = NetworkTableInstance.getDefault();
-    subtable = inst.getTable("shooter");
-    subtable.getEntry("should_log").setBoolean(false);
+    left.setNeutralMode(NeutralMode.Coast);
 
+    left.configNominalOutputForward(0);
+    left.configNominalOutputReverse(0);
+    left.configPeakOutputForward(1);
+    left.configPeakOutputReverse(-1);
+
+    left.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 30);
+    left.setSensorPhase(false);
+
+    left.setInverted(true);
   }
 
   /**
