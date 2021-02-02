@@ -75,7 +75,9 @@ public class Shooter extends SubsystemBase {
     right.setInverted(false);
 
     // Initial PID constants
-    updatePIDConstants(PIDConstants.fromDoubles(ShooterConstants.kP, ShooterConstants.kI, ShooterConstants.kD, ShooterConstants.kF));
+    PIDConstants shooterConstants = 
+      PIDConstants.fromDoubles(ShooterConstants.kP, ShooterConstants.kI, ShooterConstants.kD, ShooterConstants.kF);
+    updatePIDConstants(shooterConstants);
 
     // Setup NetworkTables subtable
     final NetworkTableInstance inst = NetworkTableInstance.getDefault();
@@ -148,7 +150,7 @@ public class Shooter extends SubsystemBase {
 
     double leftEncVel = left.getSelectedSensorVelocity(); 
     double rightEncVel = right.getSelectedSensorVelocity();
-    // int leftEncVel = left.getSensorCollection().getPulseWidthVelocity();
+    // int leftEncVel = left.getSensorCollection().getPulseWidthVelocity(); // TODO: What do these do and are they important? 
     // int rightEncVel = right.getSensorCollection().getPulseWidthVelocity();
 
     return new double[] { leftEncVel, rightEncVel };
