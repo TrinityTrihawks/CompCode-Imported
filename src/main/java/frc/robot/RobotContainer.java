@@ -51,7 +51,7 @@ public class RobotContainer {
   // Commands
   private final Command autoCommand;
   private final Command intakeForwardBoost, intakeReverse, intakeReverseBoost;
-  // private final Command intakeAutoStorage;
+  // private final Command intakeAutoStorage; // TODO: do we need this?
   private final Command shootReverse, shootReverseBoost;
   private final Command endgameCommand;
   private final Command storageForwardBoost, storageReverse, storageReverseBoost;

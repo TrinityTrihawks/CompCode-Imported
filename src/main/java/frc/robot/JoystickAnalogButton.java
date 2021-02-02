@@ -30,7 +30,7 @@ public class JoystickAnalogButton extends Button {
 
   GenericHID m_joystick;
   int m_axisNumber;
-  private double THRESHOLD = 0.5;
+  private double threshold = 0.5; 
 
   /**
    * Create a button for triggering commands off a joystick's analog axis
@@ -53,7 +53,7 @@ public class JoystickAnalogButton extends Button {
   public JoystickAnalogButton(GenericHID joystick, int axisNumber, double threshold) {
   	m_joystick = joystick;
       m_axisNumber = axisNumber;
-      THRESHOLD = threshold;
+      this.threshold = threshold;
   }
 
   /**
@@ -64,7 +64,7 @@ public class JoystickAnalogButton extends Button {
    * @param threshold the threshold value (1 to -1)
    */
   public void setThreshold(double threshold){
-  	THRESHOLD = threshold;
+  	this.threshold = threshold;
   }
  
   /**
@@ -72,15 +72,15 @@ public class JoystickAnalogButton extends Button {
    * @return the threshold value
    */
   public double getThreshold(){
-  	return THRESHOLD;
+  	return threshold;
   }
   
 
   public boolean get() {
-    if(THRESHOLD < 0){
-      return m_joystick.getRawAxis(m_axisNumber) < THRESHOLD;    //Return true if axis value is less than negative threshold
+    if(threshold < 0){
+      return m_joystick.getRawAxis(m_axisNumber) < threshold;    //Return true if axis value is less than negative threshold
     } else {
-      return m_joystick.getRawAxis(m_axisNumber) > THRESHOLD;    //Return true if axis value is greater than positive threshold
+      return m_joystick.getRawAxis(m_axisNumber) > threshold;    //Return true if axis value is greater than positive threshold
     }
   }
 

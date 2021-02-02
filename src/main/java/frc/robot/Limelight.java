@@ -15,7 +15,6 @@ public class Limelight {
     }
 
     /**
-     * <p>gets the <code>Limelight</code> instance
      * @return the <code>Limelight</code> instance
      */
     public static Limelight getInstance() {

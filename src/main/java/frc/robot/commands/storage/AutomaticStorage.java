@@ -2,7 +2,7 @@ package frc.robot.commands.storage;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Storage;
-import frc.robot.subsystems.Storage.SwitchSelector;
+import static frc.robot.subsystems.Storage.SwitchSelector;
 
 public class AutomaticStorage extends CommandBase {
 
