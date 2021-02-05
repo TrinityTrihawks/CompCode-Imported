@@ -25,7 +25,7 @@ public class AutomaticStorage extends CommandBase {
   public void execute() {
     if (storage.getBeamTrigger(SwitchSelector.low) && !storage.getBeamTrigger(SwitchSelector.high)) {
       storage.autoForward();
-      BeamBreakEvent.trigger(); // TODO: call acknowledge in new command
+      BeamBreakEvent.trigger(); 
     } else {
       storage.off();
     }
