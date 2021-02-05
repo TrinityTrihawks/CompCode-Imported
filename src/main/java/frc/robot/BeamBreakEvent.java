@@ -16,9 +16,9 @@ public class BeamBreakEvent {
     }
         
         
-        public static void acknowledge() {
-            if (event != null) {
-                event = null;
+    public static void acknowledge() {
+        if (event != null) {
+            event = null;
         }
     }
 
