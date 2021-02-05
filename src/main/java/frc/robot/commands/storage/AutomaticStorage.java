@@ -3,6 +3,7 @@ package frc.robot.commands.storage;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Storage;
 import static frc.robot.subsystems.Storage.SwitchSelector;
+import frc.robot.BeamBreakEvent;
 
 public class AutomaticStorage extends CommandBase {
 
@@ -24,6 +25,7 @@ public class AutomaticStorage extends CommandBase {
   public void execute() {
     if (storage.getBeamTrigger(SwitchSelector.low) && !storage.getBeamTrigger(SwitchSelector.high)) {
       storage.autoForward();
+      BeamBreakEvent.trigger(); // TODO: call acknowledge in new command
     } else {
       storage.off();
     }

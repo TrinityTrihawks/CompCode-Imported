@@ -11,8 +11,8 @@ public class PovUpTrigger extends Trigger {
   } 
 
   @Override
+  // This returns whether the trigger is active
   public boolean get() {
-    // This returns whether the trigger is active
     int povAngle = gamepad.getPOV();
     return ( povAngle==0 || povAngle==315 || povAngle==45 );
   }

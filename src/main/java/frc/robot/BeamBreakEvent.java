@@ -16,4 +16,8 @@ public class BeamBreakEvent {
         if (event != null)
             event = null;
     }
+
+    public static boolean checkIfTriggered() {
+        return event != null;
+    }
 }
