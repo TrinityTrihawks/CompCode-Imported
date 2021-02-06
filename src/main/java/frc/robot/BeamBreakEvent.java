@@ -1,5 +1,6 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard; 
 
 public class BeamBreakEvent {
     private static BeamBreakEvent event = null;
@@ -12,6 +13,7 @@ public class BeamBreakEvent {
         if(event == null) {
             event = new BeamBreakEvent();
             ++count;
+            SmartDashboard.putNumber("BeamBrokenTimes", count);
         }
     }
         
