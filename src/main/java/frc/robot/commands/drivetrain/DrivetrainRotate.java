@@ -17,7 +17,7 @@ public class DrivetrainRotate extends CommandBase {
   private Double rightPercent;
   private Double leftPercent;
 
-  // Creates a new JoystickDrive command
+  
   public DrivetrainRotate(Drivetrain drivetrain, Double rightPercent, Double leftPercent) {
     this.drivetrain = drivetrain;
     this.rightPercent = rightPercent;

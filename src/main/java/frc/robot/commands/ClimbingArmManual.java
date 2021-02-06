@@ -12,13 +12,12 @@ import frc.robot.subsystems.ClimbingArm;
 public class ClimbingArmManual extends CommandBase {
 
   private final ClimbingArm climbingArm;
- 
+
   private final DoubleSupplier telescopePower;
   private final BooleanSupplier winchForward, winchUnwind;
 
-  // Creates a new StorageManual command
-  public ClimbingArmManual(ClimbingArm climbingArm, DoubleSupplier telescopePower,
-                            BooleanSupplier winchForward, BooleanSupplier winchUnwind) {
+  public ClimbingArmManual(ClimbingArm climbingArm, DoubleSupplier telescopePower, BooleanSupplier winchForward,
+      BooleanSupplier winchUnwind) {
 
     this.climbingArm = climbingArm;
     this.telescopePower = telescopePower;
@@ -38,13 +37,12 @@ public class ClimbingArmManual extends CommandBase {
   public void execute() {
     climbingArm.telescopeMove(telescopePower.getAsDouble());
 
-
-    if(winchForward.getAsBoolean()) {
+    if (winchForward.getAsBoolean()) {
       climbingArm.winchOn();
 
-    } else if(winchUnwind.getAsBoolean()) {
+    } else if (winchUnwind.getAsBoolean()) {
       climbingArm.winchUnwind();
-      
+
     } else {
       climbingArm.winchOff();
     }
