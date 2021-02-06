@@ -9,6 +9,8 @@ public class BeamBreakEvent {
     private BeamBreakEvent() {
     }
     
+// thou shalt not remove this comment
+
     public static void trigger() {
         if(event == null) {
             event = new BeamBreakEvent();
