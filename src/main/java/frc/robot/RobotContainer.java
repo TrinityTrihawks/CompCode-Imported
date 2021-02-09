@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
@@ -18,6 +19,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.AuxGamepadMap;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.ClimbingArmManual;
+import frc.robot.commands.GalacticSearchControl;
 import frc.robot.commands.IntakeForward;
 import frc.robot.commands.ShootInitLineAndLoad;
 import frc.robot.commands.drivetrain.JoystickDrive;
@@ -188,12 +190,15 @@ public class RobotContainer {
       driveOffInitLine
     );
 
-    autoCommand = threeBallAutoFromInit;
+    autoCommand = new ParallelCommandGroup(
+      new GalacticSearchControl(new UltrasonicSensor(), drivetrain),
+      new AutomaticStorage(storage)
+    );
 
  
     configureDefaultCommands();
 
-    // Configure the button bindings
+    
     configureButtonBindings();
 
   }

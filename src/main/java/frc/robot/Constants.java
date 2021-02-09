@@ -28,7 +28,7 @@ public final class Constants {
      */
     public static final class IntakeConstants {
         public static final int kMotorId = 1;
-        // TODO: add ID for optical beam-break sensor
+        public static final int kBeamBreakPin = 3; // TODO: add ID for optical beam-break sensor
     }
 
     /**
@@ -256,7 +256,7 @@ public final class Constants {
     }
 
     public static final class UltrasonicSensorConstants {
-        public static byte pin = 0; // TODO: set USS pin #
+        public static byte pin = 0; 
         /**
          * multiply
          */

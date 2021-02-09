@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.UltrasonicSensor;
 import frc.robot.commands.drivetrain.DriveUntilPickup;
+import frc.robot.commands.drivetrain.TurnUsingGyro;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Storage;
 
@@ -10,20 +11,34 @@ public class GalacticSearchControl extends SequentialCommandGroup {
     private UltrasonicSensor uss;
     private PathColor side = PathColor.Red;
     private byte path = 1;
-    private double[][] angles = new double[4][3]; //TODO: set these
+    private int anglesIndex = 0;
+    private double[][] angles = {
+            { 26.565, -98.13, 71.565 }, // path1, red
+            { 45.0, -90.0, 45.0 }, // path1, blue
+            { -71.565, 98.13, -26.565 }, // path2, red
+            { -45.0, 90.0, -45.0 }  // path2, blue
+    }; 
 
     private enum PathColor {
         Red, Blue
     }
 
-    public GalacticSearchControl(UltrasonicSensor uss, Drivetrain drivetrain, Storage storage) {
+    public GalacticSearchControl(UltrasonicSensor uss, Drivetrain drivetrain) {
         this.uss = uss;
+
         setPathAndColor();
+        setAnglesIndex();
         addCommands(
-            new DriveUntilPickup(drivetrain, storage),
-            new TurnUsingGyro(drivetrain, ) // TODO: fill this out
+            new DriveUntilPickup(drivetrain),
+            new TurnUsingGyro(drivetrain, angles[anglesIndex][0], 0.3),
+            new DriveUntilPickup(drivetrain),
+            new TurnUsingGyro(drivetrain, angles[anglesIndex][1], 0.3),
+            new DriveUntilPickup(drivetrain),
+            new TurnUsingGyro(drivetrain, angles[anglesIndex][2], 0.3),
+            new DriveUntilPickup(drivetrain)
         );
 
+        addRequirements(drivetrain);
     }
     
     private void setPathAndColor() {
@@ -45,6 +60,22 @@ public class GalacticSearchControl extends SequentialCommandGroup {
                 side = PathColor.Red;
                 path = 2;
                 break;
+        }
+    }
+
+    private void setAnglesIndex() {
+        if (path == 1) {
+            if (side == PathColor.Red) {
+                anglesIndex = 0;
+            } else {
+                anglesIndex = 1;
+            }
+        } else if (path == 2) {
+            if (side == PathColor.Red) {
+                anglesIndex = 2;
+            } else {
+                anglesIndex = 3;
+            }
         }
     }
 
