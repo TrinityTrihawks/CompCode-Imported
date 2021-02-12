@@ -9,11 +9,11 @@ import edu.wpi.first.wpilibj.shuffleboard.EventImportance;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+//import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
-import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+//import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.StartEndCommand;
-import edu.wpi.first.wpilibj2.command.WaitCommand;
+//import edu.wpi.first.wpilibj2.command.WaitCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.AuxGamepadMap;
@@ -27,7 +27,7 @@ import frc.robot.commands.shooter.ShootOpenLoop;
 import frc.robot.commands.shooter.TunePIDFromDashboard;
 import frc.robot.commands.storage.AutomaticStorage;
 import frc.robot.commands.storage.StorageForward;
-import frc.robot.commands.storage.UnlatchIntakeUsingTime;
+//import frc.robot.commands.storage.UnlatchIntakeUsingTime;
 import frc.robot.subsystems.ClimbingArm;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
@@ -53,7 +53,7 @@ public class RobotContainer {
   // Commands
   private final Command autoCommand;
   private final Command intakeForwardBoost, intakeReverse, intakeReverseBoost;
-  // private final Command intakeAutoStorage; // TODO: do we need this?
+  // private final Command intakeAutoStorage; //  do we need this? NOPE!
   private final Command shootReverse, shootReverseBoost;
   private final Command endgameCommand;
   private final Command storageForwardBoost, storageReverse, storageReverseBoost;
@@ -163,8 +163,8 @@ public class RobotContainer {
     //     new WaitUntilCommand(() -> storage.getIntakeSwitch()),
     //     new ScheduleCommand(
     //       new StorageIncrement(storage)
-    //       // TODO: should this iterate so that multiple StorageIncrements can occur if
-    //       // the switch is still pressed?
+    //       // should this iterate so that multiple StorageIncrements can occur if
+    //       // the switch is still pressed? NOPE!
     //     )
     //   )
     // );
@@ -175,20 +175,20 @@ public class RobotContainer {
     // Autonomous-specific Commands ////////////////////
     ////////////////////////////////////////////////////
 
-    final Command driveOffInitLine = new SequentialCommandGroup(
-      // Drive backwards for 2 seconds
-      new InstantCommand(() -> drivetrain.driveOpenLoop(.3, .3), drivetrain),
-      new WaitCommand(2),
-      new InstantCommand(() -> drivetrain.driveOpenLoop(0, 0), drivetrain)
-    );
+    // final Command driveOffInitLine = new SequentialCommandGroup(
+    //   // Drive backwards for 2 seconds
+    //   new InstantCommand(() -> drivetrain.driveOpenLoop(.3, .3), drivetrain),
+    //   new WaitCommand(2),
+    //   new InstantCommand(() -> drivetrain.driveOpenLoop(0, 0), drivetrain)
+    // );
 
 
-    final Command threeBallAutoFromInit = new SequentialCommandGroup(
-      new UnlatchIntakeUsingTime(storage),
-      new ShootInitLineAndLoad(shooter, storage)
-        .withTimeout(8),
-      driveOffInitLine
-    );
+    // final Command threeBallAutoFromInit = new SequentialCommandGroup(
+    //   new UnlatchIntakeUsingTime(storage),
+    //   new ShootInitLineAndLoad(shooter, storage)
+    //     .withTimeout(8),
+    //   driveOffInitLine
+    // );
 
     autoCommand = new ParallelCommandGroup(
       new GalacticSearchControl(new UltrasonicSensor(), drivetrain),
