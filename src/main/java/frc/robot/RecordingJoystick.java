@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import edu.wpi.first.wpilibj.GenericHID;
+// import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 //import edu.wpi.first.wpilibj.communication.FRCNetworkCommunicationsLibrary;
 import edu.wpi.first.hal.HAL;
@@ -354,7 +354,7 @@ public class RecordingJoystick extends Joystick {
 		for (int i = 0; i < rawAxes.length; i++)
 			rawAxes[i] = getPOV(i);
 
-		JoystickState currentState = new JoystickState(getX(), getY(), getZ(), getTwist(), getThrottle(), rawAxes,
+		JoystickState currentState = new JoystickState(getXW(null), getYW(null), getZW(null), getTwist(), getThrottle(), rawAxes,
 				getTrigger(), getTop(), rawButtons, povVals);
 
 		joystickStates.add(currentState);
@@ -371,7 +371,7 @@ public class RecordingJoystick extends Joystick {
 	 * @see
 	 * edu.wpi.first.wpilibj.GenericHID#getX(edu.wpi.first.wpilibj.GenericHID.Hand)
 	 */
-	public double getX2(Hand hand) {
+	public double getXW(Hand hand) {
 		if (currentMode == MODE_PLAYBACK) {
 			return currentState.xVal;
 		} else {
@@ -385,7 +385,7 @@ public class RecordingJoystick extends Joystick {
 	 * @see
 	 * edu.wpi.first.wpilibj.GenericHID#getY(edu.wpi.first.wpilibj.GenericHID.Hand)
 	 */
-	public double getY2(Hand hand) {
+	public double getYW(Hand hand) {
 		if (currentMode == MODE_PLAYBACK)
 			return currentState.yVal;
 		else
@@ -399,7 +399,7 @@ public class RecordingJoystick extends Joystick {
 	 * edu.wpi.first.wpilibj.GenericHID#getZ(edu.wpi.first.wpilibj.GenericHID.Hand)
 	 */
 	
-	public double getZ2(Hand hand) {
+	public double getZW(Hand hand) {
 		if (currentMode == MODE_PLAYBACK)
 			return currentState.zVal;
 		else
@@ -558,8 +558,11 @@ public class RecordingJoystick extends Joystick {
 				ObjectInputStream in = new ObjectInputStream(fileIn);
 
 				// read in the data and assign it to the joystickStates array
-				joystickStates = (ArrayList<JoystickState>) in.readObject();
-
+				// TODO: NOT GOOD
+				Object inread = in.readObject();
+				if (inread instanceof ArrayList<?>){
+					joystickStates = (ArrayList<JoystickState>) inread;
+				}
 				in.close();
 				fileIn.close();
 
