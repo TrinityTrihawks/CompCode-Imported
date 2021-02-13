@@ -3,8 +3,12 @@ package frc.robot;
 import edu.wpi.cscore.AxisCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import jdk.jfr.Enabled;
+
 import static frc.robot.Constants.NetworkConstants;
 
 /**
@@ -20,6 +24,10 @@ public class Robot extends TimedRobot {
   private RobotContainer m_robotContainer;
 
   AxisCamera intakeCamera;
+
+  SendableChooser<Boolean> enableRecording = new SendableChooser<Boolean>();
+  SendableChooser<Boolean> enablePlayback = new SendableChooser<Boolean>();
+  
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -54,7 +62,7 @@ public class Robot extends TimedRobot {
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
     // m_robotContainer.logData();
-    
+
   }
 
   /**
@@ -105,6 +113,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+
   }
 
   @Override
