@@ -179,7 +179,7 @@ public class RecordingJoystick extends Joystick {
 	 */
 	private String playbackFile;
 
-	// TODO: Implement playback indexes for default playback files?
+	// RTODO: Implement playback indexes for default playback files?
 
 	/**
 	 * Construct an instance of a recording joystick. The joystick index is the usb

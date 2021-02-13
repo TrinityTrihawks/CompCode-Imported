@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.shuffleboard.EventImportance;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import frc.robot.RecordingJoystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -31,6 +32,7 @@ import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Storage;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -58,7 +60,7 @@ public class RobotContainer {
 
 
   // Main drivetrain joystick and  auxiliary arm joystick/buttons
-  private final Joystick mainController = new Joystick(OIConstants.kMainControllerPort);
+  private final RecordingJoystick mainController = new RecordingJoystick(OIConstants.kMainControllerPort);
   private final Joystick auxGamepad = new Joystick(OIConstants.kAuxiliaryControllerPort);
   private final AuxGamepadMap auxMap;
 
@@ -203,7 +205,7 @@ public class RobotContainer {
     // Drivetrain default
     drivetrain.setDefaultCommand(new JoystickDrive(
       drivetrain,
-      () -> mainController.getY(),
+      () -> mainController.getYW(null),
       () -> mainController.getTwist(),
       () -> mainController.getRawButton(OIConstants.kSlowLeftTurnButtonId),
       () -> mainController.getRawButton(OIConstants.kSlowRightTurnButtonId),
@@ -310,7 +312,7 @@ public class RobotContainer {
   public void logData() {
     subtable.getEntry("MainController/Throttle").setDouble(mainController.getThrottle());
     subtable.getEntry("MainController/Twist").setDouble(mainController.getTwist());
-    subtable.getEntry("MainController/Y").setDouble(mainController.getY());
+    subtable.getEntry("MainController/Y").setDouble(mainController.getYW(null));
 
     System.out.println("X button " + auxGamepad.getRawButton(auxMap.smartShoot()));
     System.out.println("Boost button " + auxGamepad.getRawAxis(auxMap.boost()));
