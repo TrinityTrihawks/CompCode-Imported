@@ -25,7 +25,7 @@ public final class Constants {
      * Intake Constants
      */
     public static final class IntakeConstants {
-        public static final int kMotorId = 1;
+        public static final int kMotorId = 9;
         // TODO: add ID for optical beam-break sensor
     }
 
