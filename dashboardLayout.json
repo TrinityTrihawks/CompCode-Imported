@@ -1,0 +1,611 @@
+{
+  "tabPane": [
+    {
+      "title": "SmartDashboard",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "SmartDashboard/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Cam Success",
+              "_title": "Cam Success",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "1,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/left_state_b",
+              "_title": "left_state_b"
+            }
+          },
+          "2,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/left_state_a",
+              "_title": "left_state_a"
+            }
+          },
+          "2,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Throttle",
+              "_title": "Throttle"
+            }
+          },
+          "7,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/Rotation",
+              "_title": "Rotation"
+            }
+          },
+          "6,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/POV Angle",
+              "_title": "POV Angle"
+            }
+          },
+          "6,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Right Slow Turn",
+              "_title": "Right Slow Turn",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "7,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Left Slow Turn",
+              "_title": "Left Slow Turn",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "3,0": {
+            "size": [
+              3,
+              2
+            ],
+            "content": {
+              "_type": "Camera Stream",
+              "_source0": "camera_server://Intake Camera",
+              "_title": "Intake Camera",
+              "Crosshair/Show crosshair": true,
+              "Crosshair/Crosshair color": "#FFFFFFFF",
+              "Controls/Show controls": true,
+              "Controls/Rotation": "NONE",
+              "compression": -1.0,
+              "fps": -1,
+              "imageWidth": -1,
+              "imageHeight": -1
+            }
+          },
+          "8,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "ComboBox Chooser",
+              "_source0": "network_table:///SmartDashboard/Auto choices",
+              "_title": "Auto choices"
+            }
+          },
+          "0,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/LS",
+              "_title": "LS",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "8,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///storage/should_log",
+              "_title": "storage/should_log"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "LiveWindow",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "LiveWindow/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              2,
+              4
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_source0": "network_table:///LiveWindow/Shooter",
+              "_title": "Shooter",
+              "Layout/Label position": "BOTTOM",
+              "_children": []
+            }
+          },
+          "2,0": {
+            "size": [
+              2,
+              4
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_source0": "network_table:///LiveWindow/ClimbingArm",
+              "_title": "ClimbingArm",
+              "Layout/Label position": "BOTTOM",
+              "_children": []
+            }
+          },
+          "4,0": {
+            "size": [
+              2,
+              4
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_source0": "network_table:///LiveWindow/Intake",
+              "_title": "Intake",
+              "Layout/Label position": "BOTTOM",
+              "_children": []
+            }
+          },
+          "6,0": {
+            "size": [
+              2,
+              4
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_source0": "network_table:///LiveWindow/Storage",
+              "_title": "Storage",
+              "Layout/Label position": "BOTTOM",
+              "_children": []
+            }
+          },
+          "8,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///LiveWindow/Ungrouped/DigitalInput[0]/Value",
+              "_title": "Ungrouped/DigitalInput[0]/Value",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "8,1": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///LiveWindow/Ungrouped/DigitalInput[2]/Value",
+              "_title": "Ungrouped/DigitalInput[2]/Value",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          },
+          "8,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///LiveWindow/Ungrouped/DigitalInput[1]/Value",
+              "_title": "Ungrouped/DigitalInput[1]/Value",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Diagnostics",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 60.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "5,0": {
+            "size": [
+              4,
+              5
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_title": "Drivetrain",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Toggle Switch",
+                  "_source0": "network_table:///drivetrain/should_log",
+                  "_title": "drivetrain/should_log"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///drivetrain/frontLeft_voltage",
+                  "_title": "FL voltage"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///drivetrain/frontRight_voltage",
+                  "_title": "FR voltage"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///drivetrain/backLeft_voltage",
+                  "_title": "BL voltage"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///drivetrain/backRight_voltage",
+                  "_title": "BR voltage"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///drivetrain/gyro_state",
+                  "_title": "Gyro state"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///drivetrain/gyro_angle",
+                  "_title": "Gyro angle"
+                }
+              ]
+            }
+          },
+          "9,0": {
+            "size": [
+              4,
+              6
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_title": "Shooter",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Toggle Switch",
+                  "_source0": "network_table:///shooter/should_log",
+                  "_title": "shooter/should_log"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///shooter/left_voltage",
+                  "_title": "Left voltage"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///shooter/right_voltage",
+                  "_title": "Right voltage"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///shooter/left_controlMode",
+                  "_title": "Left ControlMode"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///shooter/right_controlMode",
+                  "_title": "Right ControlMode"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///shooter/LeftShooterVel",
+                  "_title": "Left encoder"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///shooter/RightShooterVel",
+                  "_title": "Right encoder"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///shooter/left_targetVel",
+                  "_title": "Left target"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///shooter/right_targetVel",
+                  "_title": "Right target"
+                }
+              ]
+            }
+          },
+          "13,0": {
+            "size": [
+              4,
+              3
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_title": "Storage",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///storage/voltage",
+                  "_title": "Voltage"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///storage/highBeam",
+                  "_title": "storage/highBeam",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///storage/middleBeam",
+                  "_title": "storage/middleBeam",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///storage/lowerBeam",
+                  "_title": "storage/lowerBeam",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                }
+              ]
+            }
+          },
+          "13,3": {
+            "size": [
+              4,
+              2
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_title": "Intake",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Toggle Switch",
+                  "_source0": "network_table:///intake/should_log",
+                  "_title": "intake/should_log"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///intake/voltage",
+                  "_title": "Voltage"
+                }
+              ]
+            }
+          },
+          "3,1": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///storage/beltSpeed",
+              "_title": "storage/beltSpeed"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "PID Tuning",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 60.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "5,0": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///pid_tuning/kP",
+              "_title": "pid_tuning/kP"
+            }
+          },
+          "7,0": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///pid_tuning/kI",
+              "_title": "pid_tuning/kI"
+            }
+          },
+          "11,0": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///pid_tuning/kF",
+              "_title": "pid_tuning/kF"
+            }
+          },
+          "3,0": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///pid_tuning/vel",
+              "_title": "pid_tuning/vel"
+            }
+          },
+          "9,0": {
+            "size": [
+              2,
+              2
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///pid_tuning/kD",
+              "_title": "pid_tuning/kD"
+            }
+          },
+          "7,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///shooter/LeftShooterVel",
+              "_title": "shooter/LeftShooterVel"
+            }
+          },
+          "9,2": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///shooter/RightShooterVel",
+              "_title": "shooter/RightShooterVel"
+            }
+          },
+          "11,2": {
+            "size": [
+              5,
+              3
+            ],
+            "content": {
+              "_type": "Graph",
+              "_source0": "network_table:///shooter/right_error",
+              "_title": "shooter/right_error",
+              "Graph/Visible time": 30.0,
+              "Y-axis/Automatic bounds": true,
+              "Y-axis/Upper bound": 1.0,
+              "Y-axis/Lower bound": -1.0,
+              "Visible data/shooter/right_error": true
+            }
+          },
+          "2,2": {
+            "size": [
+              5,
+              3
+            ],
+            "content": {
+              "_type": "Graph",
+              "_source0": "network_table:///shooter/left_error",
+              "_title": "shooter/left_error",
+              "Graph/Visible time": 30.0,
+              "Y-axis/Automatic bounds": true,
+              "Y-axis/Upper bound": 1.0,
+              "Y-axis/Lower bound": -1.0,
+              "Visible data/shooter/left_error": true
+            }
+          },
+          "7,4": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///shooter/left_targetVel",
+              "_title": "shooter/left_targetVel"
+            }
+          },
+          "9,4": {
+            "size": [
+              2,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///shooter/right_targetVel",
+              "_title": "shooter/right_targetVel"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "windowGeometry": {
+    "x": -7.0,
+    "y": 0.0,
+    "width": 1378.0,
+    "height": 575.0
+  }
+}
