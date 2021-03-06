@@ -25,6 +25,7 @@ public class JoystickDrive extends CommandBase {
   private final BooleanSupplier leftSlowTurn;
   private final BooleanSupplier rightSlowTurn;
   private final IntSupplier povAngle;
+  private int allowTurn;
 
   // Creates a new JoystickDrive command
   public JoystickDrive(Drivetrain drivetrain, DoubleSupplier forward, DoubleSupplier rotation,
@@ -35,6 +36,7 @@ public class JoystickDrive extends CommandBase {
     this.leftSlowTurn = leftSlowTurn;
     this.rightSlowTurn = rightSlowTurn;
     this.povAngle = povAngle;
+    this.allowTurn = 1;
 
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(drivetrain);
@@ -67,6 +69,13 @@ public class JoystickDrive extends CommandBase {
     SmartDashboard.putNumber("POV Angle", povAngle.getAsInt());
     SmartDashboard.putBoolean("Right Slow Turn", rightSlowTurn.getAsBoolean());
     SmartDashboard.putBoolean("Left Slow Turn", leftSlowTurn.getAsBoolean());
+
+    // TODO: should allowTurn use network tables instead of the smart dashboard?
+    if (SmartDashboard.getBoolean("Allow Turn", true) == true) {
+      allowTurn = 1;
+    } else {
+      allowTurn = 0;
+    }
 
     double leftDrive = 0;
     double rightDrive = 0;
@@ -113,7 +122,7 @@ public class JoystickDrive extends CommandBase {
 
     } else {
       // Throttling forward
-      rotation = rotation * Math.abs(forward) * 0.2;
+      rotation = allowTurn * rotation * Math.abs(forward) * 0.2;
 
       // compute drivetrain values for the left and right sides
       leftDrive = forward + rotation;
