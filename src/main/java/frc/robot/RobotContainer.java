@@ -226,7 +226,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-    final Trigger boost = new Trigger( () -> auxGamepad.getRawAxis(auxMap.boost()) > 0.9);
+    final Trigger boost = new Trigger(() -> auxGamepad.getRawAxis(auxMap.boost()) > 0.9);
 
     // Intake
     final JoystickButton intakeForwardButton = new JoystickButton(auxGamepad, auxMap.intake());
